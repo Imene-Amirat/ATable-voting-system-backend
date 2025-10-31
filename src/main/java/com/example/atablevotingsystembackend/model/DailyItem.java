@@ -10,24 +10,24 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Entity
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "date"}, name = "user_unique_vote")})
-public class Vote {
+@Table(name = "daily_item", uniqueConstraints = {@UniqueConstraint(columnNames = {"resto_id", "dish_id", "date"}, name = "daily_item_unique")})
+public class DailyItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotNull
     @ManyToOne(optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @JoinColumn(name = "dish_id", nullable = false)
+    private Dish dish;
 
     @NotNull
     @ManyToOne(optional = false)
-    @JoinColumn(name = "resto_id", nullable = false)
+    @JoinColumn(name = "resto_id",  nullable = false)
     private Restaurant restaurant;
 
     @NotNull
