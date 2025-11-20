@@ -23,7 +23,7 @@ public class ApplicationConfig {
         this.userRepository = userRepository;
     }
 
-    @Bean
+    //defines how to retrieve the user using the UserRepository that is injected    @Bean
     UserDetailsService userDetailsService() {
         return username -> userRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
@@ -39,6 +39,7 @@ public class ApplicationConfig {
         return config.getAuthenticationManager();
     }
 
+    //sets the new strategy to perform the authentication.
     @Bean
     AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
