@@ -1,6 +1,5 @@
 package com.example.atablevotingsystembackend.dto;
 
-import com.example.atablevotingsystembackend.model.Role;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +24,5 @@ public class RegisterRequest {
     private String confirmPassword;
 
     @NotBlank
-    private Role role;
+    private String role;
 }

@@ -2,9 +2,9 @@ package com.example.atablevotingsystembackend.controller;
 
 import com.example.atablevotingsystembackend.dto.RegisterRequest;
 import com.example.atablevotingsystembackend.dto.RegisterResponse;
-import com.example.atablevotingsystembackend.model.User;
 import com.example.atablevotingsystembackend.service.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,6 +23,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest userReq) {
-        return authService.register(userReq);
+        RegisterResponse response = authService.register(userReq);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 }
