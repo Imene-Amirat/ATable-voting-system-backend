@@ -1,7 +1,6 @@
 package com.example.atablevotingsystembackend.controller;
 
 import com.example.atablevotingsystembackend.dto.RestaurantCardDTO;
-import com.example.atablevotingsystembackend.service.DishService;
 import com.example.atablevotingsystembackend.service.RestaurantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +21,7 @@ public class RestaurantController {
     }
 
     @GetMapping("/")
-    public List<RestaurantCardDTO> DishService getOwnerRestaurants() {
+    public List<RestaurantCardDTO> getOwnerRestaurants() {
         return restaurantService.getRestaurantsForOwner();
     }
 }
