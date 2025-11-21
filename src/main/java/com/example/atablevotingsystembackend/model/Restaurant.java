@@ -51,9 +51,4 @@ public class Restaurant {
 
     @Column(precision = 3, scale = 2)
     private BigDecimal rating = BigDecimal.ZERO; // default 0.0
-
-    @NotNull
-    @ManyToOne(optional = false, fetch = FetchType.LAZY) //Prevents loading the whole owner entity unnecessarily
-    @JoinColumn(name = "owner_id", nullable = false)
-    private Owner owner;
 }

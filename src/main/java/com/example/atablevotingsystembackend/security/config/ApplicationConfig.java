@@ -23,7 +23,8 @@ public class ApplicationConfig {
         this.userRepository = userRepository;
     }
 
-    //defines how to retrieve the user using the UserRepository that is injected    @Bean
+    //defines how to retrieve the user using the UserRepository that is injected
+    @Bean
     UserDetailsService userDetailsService() {
         return username -> userRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));

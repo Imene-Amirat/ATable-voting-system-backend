@@ -26,6 +26,7 @@ public class AuthService {
 
     public RegisterResponse register(RegisterRequest request) {
         // 1. Vérifier que l'email n'existe pas déjà
+        System.out.println("11111111");
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException("Email already in use");
         }
@@ -39,6 +40,7 @@ public class AuthService {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setUsername(request.getUsername());
         user.setRole(role);
+        System.out.println("22");
 
         // 4. Sauvegarder en base
         user = userRepository.save(user);

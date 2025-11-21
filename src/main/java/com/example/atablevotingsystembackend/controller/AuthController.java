@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("api/auth")
 public class AuthController {
     private final AuthService authService;
 
@@ -23,6 +23,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ResponseEntity<RegisterResponse> register(@RequestBody RegisterRequest userReq) {
+        System.out.println(userReq);
         RegisterResponse response = authService.register(userReq);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }

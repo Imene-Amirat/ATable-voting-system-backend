@@ -5,6 +5,7 @@ import com.example.atablevotingsystembackend.model.Dish;
 import com.example.atablevotingsystembackend.model.Restaurant;
 import com.example.atablevotingsystembackend.repository.DishRepository;
 import com.example.atablevotingsystembackend.repository.RestaurantRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
@@ -14,6 +15,7 @@ public class DishService {
     private final DishRepository dishRepository;
     private final RestaurantRepository restaurantRepository;
 
+    @Autowired
     public DishService(DishRepository dishRepository, RestaurantRepository restaurantRepository) {
         this.dishRepository = dishRepository;
         this.restaurantRepository = restaurantRepository;

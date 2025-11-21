@@ -2,6 +2,7 @@ package com.example.atablevotingsystembackend.service;
 
 import com.example.atablevotingsystembackend.dto.RestaurantCardDTO;
 import com.example.atablevotingsystembackend.repository.RestaurantRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +11,12 @@ import java.util.List;
 public class RestaurantService {
     private final RestaurantRepository restaurantRepository;
 
+    @Autowired
     public RestaurantService(RestaurantRepository restaurantRepository) {
         this.restaurantRepository = restaurantRepository;
     }
 
     public List<RestaurantCardDTO> getRestaurantsForOwner(){
-
+        return null;
     }
 }
